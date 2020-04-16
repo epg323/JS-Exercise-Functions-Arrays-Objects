@@ -308,7 +308,6 @@ function getOlderCars(arr , year) {
 */
 function getGermanCars(arr) {
     let german=arr.filter(x=> x.car_make === 'Audi' ||x.car_make === 'Mercedes-Benz' || x.car_make ==='Volkswagen' || x.car_make ==='BMW');
-    console.log(german);
     return german;
 }
 
@@ -325,10 +324,17 @@ function getGermanCars(arr) {
  *         (1) causes the odometer in the object to be increased by the distance,
  *         (2) returns the updated value of the `odometer`.
 */
-function carMaker(/* code here */) {
-  /* code here */
+function carMaker(odo) {
+    let obj = {
+      'odometer':odo,
+      drive: function(dist){
+        this.odometer= this.odometer+dist;
+        return this.odometer;
+      }
+    };
+    return obj;
 }
-
+console.log(carMaker(5).drive(3))
 /// ////// END OF CHALLENGE /////////
 /// ////// END OF CHALLENGE /////////
 /// ////// END OF CHALLENGE /////////
